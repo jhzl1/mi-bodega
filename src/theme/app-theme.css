@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "NotoSans";
+  src: url("../assets/fonts/NotoSans-Italic.ttf");
+  font-style: italic;
+  font-weight: 100;
+}
+@font-face {
+  font-family: "NotoSans";
+  src: url("../assets/fonts/NotoSans-Regular.ttf");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "NotoSans";
+  src: url("../assets/fonts/NotoSans-Bold.ttf");
+  font-style: normal;
+  font-weight: bold;
+}
+
+body {
+  background-color: #171717 !important;
+  font-family: "NotoSans";
+  color: white !important;
+}

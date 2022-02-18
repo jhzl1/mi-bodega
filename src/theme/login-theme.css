@@ -1,0 +1,11 @@
+.unprotected-view {
+  @apply h-screen flex flex-col justify-center items-center;
+}
+
+.unprotected-container {
+  @apply bg-neutral-800 w-7/12 rounded-md shadow-xl shadow-black grid grid-cols-2 mt-5 overflow-hidden;
+}
+
+.register-container {
+  @apply bg-neutral-800 rounded-md shadow-xl shadow-black p-8 w-1/3 flex flex-col items-center justify-center;
+}
