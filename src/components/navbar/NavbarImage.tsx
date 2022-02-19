@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { routes } from "../../routes/routes";
 
 const NavbarImage = () => {
-  const { home } = routes;
+  const { dashboard } = routes;
   return (
-    <Link to={home}>
+    <Link to={dashboard}>
       <img
         src={require("../../assets/img/logo_small.png")}
         alt=""

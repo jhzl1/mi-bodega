@@ -8,10 +8,7 @@ interface CustomLinkProps {
 
 const CustomLink: FC<CustomLinkProps> = ({ to, children }) => {
   return (
-    <Link
-      to={to}
-      className="text-blue-400 font-semibold hover:text-blue-500 transition-all"
-    >
+    <Link to={to} className="custom-link">
       {children}
     </Link>
   );

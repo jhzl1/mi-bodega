@@ -1,24 +1,30 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import AppContext from "./context/AppContext";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import { routes } from "./routes/routes";
+import PrivateRoute from "./routes/PrivateRoute";
+import PublicRoutes from "./routes/PublicRoutes";
+import { publicDir, routes } from "./routes/routes";
 
 const App = () => {
-  const { login, register, home } = routes;
+  const { home } = routes;
 
   return (
     <AppContext>
       <BrowserRouter>
         <Routes>
-          <Route element={<LoginPage />} path={login} />
-          <Route element={<RegisterPage />} path={register} />
+          {publicDir.map(({ element: Element, path }, i) => (
+            <Route
+              key={i}
+              element={<PublicRoutes>{Element}</PublicRoutes>}
+              path={path}
+            />
+          ))}
+
           <Route
             element={
-              <>
+              <PrivateRoute>
                 <Dashboard />
-              </>
+              </PrivateRoute>
             }
             path={home}
           />

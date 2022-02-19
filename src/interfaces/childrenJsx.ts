@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+
 export interface ChildrenJSX {
-  children: JSX.Element | JSX.Element[] | string;
+  children: ReactElement | ReactElement[] | string;
 }

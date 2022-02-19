@@ -1,0 +1,3 @@
+.protected-container {
+  @apply mx-80 shadow-xl shadow-black min-h-screen p-10;
+}

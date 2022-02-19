@@ -1,10 +1,18 @@
 import { Formik } from "formik";
+import { useDispatch, useSelector } from "react-redux";
+import { signInEmailPassword } from "../../actions/auth";
+import { RootState } from "../../store/store";
 import { initValues, validationSchema } from "../../validations/loginForm";
 import { Custom } from "../custom";
 
 const LoginForm = () => {
-  const handleSubmit = (data: typeof initValues) => {
-    console.log(data);
+  const dispatch = useDispatch();
+
+  const state = useSelector((state: RootState) => state);
+
+  // console.log(state);
+  const handleSubmit = async ({ email, password }: typeof initValues) => {
+    await dispatch(signInEmailPassword({ email, password }));
   };
 
   return (
