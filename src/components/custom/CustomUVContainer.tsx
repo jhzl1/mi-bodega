@@ -6,7 +6,7 @@ const CustomUVContainer = ({ children }: ChildrenJSX) => {
       <img
         src={require("../../assets/img/logo_large.png")}
         alt=""
-        className="w-1/6 mb-10"
+        className="logo-page"
       />
       {children}
     </div>

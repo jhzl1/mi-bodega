@@ -8,7 +8,7 @@ const NavbarImage = () => {
       <img
         src={require("../../assets/img/logo_small.png")}
         alt=""
-        className="w-52"
+        className="navbar-image"
       />
     </Link>
   );

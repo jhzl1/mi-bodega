@@ -1,15 +1,21 @@
+import { useSelector } from "react-redux";
 import { Custom } from "../components/custom";
 import LoginForm from "../components/forms/LoginForm";
 import { routes } from "../routes/routes";
+import { RootState } from "../store/store";
 
 const LoginPage = () => {
   const { register } = routes;
 
+  const { errorMsg } = useSelector((state: RootState) => state.ui);
+
   return (
     <Custom.UVContainer>
       <div className="unprotected-container">
-        <div className="flex flex-col items-center p-8">
+        <div className="form-login-container">
           <Custom.Title>Iniciar sesión</Custom.Title>
+          {errorMsg && <Custom.Alert showPadding errorMsg={errorMsg} />}
+
           <LoginForm />
 
           <div>
@@ -21,7 +27,7 @@ const LoginPage = () => {
           <img
             src={require("../assets/img/background.jpg")}
             alt=""
-            className="object-cover h-full"
+            className="img-login"
           />
         </div>
       </div>

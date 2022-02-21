@@ -1,3 +1,11 @@
 .protected-container {
-  @apply mx-80 shadow-xl shadow-black min-h-screen p-10;
+  @apply mx-0 sm:mx-[7%]  md:mx-[10%] lg:mx-[15%]  xl:mx-[20%] shadow-xl shadow-black min-h-screen  p-5  sm:p-7 md:p-10;
+}
+
+.grid-home {
+  @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4;
+}
+
+.product-image {
+  @apply h-80  sm:h-96 md:h-auto mb-2;
 }

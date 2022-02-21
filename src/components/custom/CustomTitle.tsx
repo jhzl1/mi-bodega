@@ -6,7 +6,7 @@ interface CustomTitleProps extends ChildrenJSX {
 
 const CustomTitle = ({ isBlack, children }: CustomTitleProps) => {
   return (
-    <h2 className={`${isBlack && "text-neutral-900"} font-bold text-2xl my-2`}>
+    <h2 className={`${isBlack && "text-neutral-900"} font-bold text-3xl my-2`}>
       {children}
     </h2>
   );

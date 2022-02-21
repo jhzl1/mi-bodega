@@ -1,17 +1,22 @@
 import { Formik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { signInEmailPassword } from "../../actions/auth";
+import { removeError } from "../../actions/ui";
 import { RootState } from "../../store/store";
+
 import { initValues, validationSchema } from "../../validations/loginForm";
 import { Custom } from "../custom";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const state = useSelector((state: RootState) => state);
+  const { errorMsg } = useSelector((state: RootState) => state.ui);
 
-  // console.log(state);
   const handleSubmit = async ({ email, password }: typeof initValues) => {
+    if (errorMsg) {
+      dispatch(removeError());
+    }
+
     await dispatch(signInEmailPassword({ email, password }));
   };
 
@@ -21,20 +26,31 @@ const LoginForm = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <Custom.Form>
-        <Custom.Input name="email" placeholder="Email" />
-        <Custom.Input
-          name="password"
-          placeholder="Contraseña"
-          type="password"
-        />
-        <Custom.Button
-          title="Iniciar sesión"
-          my={3}
-          type="submit"
-          width="full"
-        />
-      </Custom.Form>
+      {({ isSubmitting }) => (
+        <>
+          <Custom.Form>
+            <Custom.Input name="email" placeholder="Email" />
+            <Custom.Input
+              name="password"
+              placeholder="Contraseña"
+              type="password"
+            />
+
+            {isSubmitting ? (
+              <Custom.LoadingIndicator />
+            ) : (
+              <Custom.Button
+                title="Iniciar sesión"
+                my={3}
+                type="submit"
+                width="full"
+              />
+            )}
+
+            <></>
+          </Custom.Form>
+        </>
+      )}
     </Formik>
   );
 };

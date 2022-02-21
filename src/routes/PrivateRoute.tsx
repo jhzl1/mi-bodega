@@ -4,10 +4,10 @@ import { RootState } from "../store/store";
 import { routes } from "./routes";
 
 const PrivateRoute = ({ children }: { children: JSX.Element }) => {
-  const { login } = routes;
+  const { login: loginPage } = routes;
   const { status } = useSelector((state: RootState) => state.auth);
 
-  return status === "is-authenticated" ? children : <Navigate to={login} />;
+  return status === "is-authenticated" ? children : <Navigate to={loginPage} />;
 };
 
 export default PrivateRoute;
