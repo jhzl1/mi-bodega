@@ -1,9 +1,9 @@
 .logo-page {
-  @apply w-72 lg:w-1/6 mb-10;
+  @apply w-52 lg:w-1/6 mb-10;
 }
 
 .unprotected-view {
-  @apply h-screen flex flex-col justify-center items-center;
+  @apply h-[92vh] md:h-screen flex flex-col justify-center items-center;
 }
 
 .unprotected-container {

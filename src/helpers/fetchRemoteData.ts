@@ -3,7 +3,7 @@ import miBodegaApi from "../api/miBodegaApi";
 type FetchRemoteDataProps = {
   endpoint: string;
   method: "GET" | "POST" | "DELETE" | "PUT";
-  payload: any;
+  payload?: any;
 };
 
 export const fetchRemoteData = <T>({

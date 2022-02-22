@@ -7,5 +7,5 @@
 }
 
 .product-image {
-  @apply h-80  sm:h-96 md:h-auto mb-2;
+  @apply object-cover h-48 sm:h-96 md:h-auto mb-2;
 }
