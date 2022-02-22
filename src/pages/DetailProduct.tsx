@@ -8,7 +8,7 @@ const DetailProduct = () => {
   console.log(params.productId);
   return (
     <>
-      <Custom.Title> Detalle del producto </Custom.Title>
+      <Custom.HeaderPage>Detalle del producto</Custom.HeaderPage>
 
       <div className="grid grid-cols-2 mt-5 gap-4">
         <ProductCard.Image />

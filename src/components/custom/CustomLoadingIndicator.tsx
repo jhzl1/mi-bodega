@@ -1,13 +1,14 @@
-import { Spinner } from "@chakra-ui/react";
+import { Spinner, SpinnerProps } from "@chakra-ui/react";
 
-const CustomLoadingIndicator = () => {
+const CustomLoadingIndicator = ({ size = "xl", ...props }: SpinnerProps) => {
   return (
     <Spinner
       thickness="4px"
       speed="0.65s"
       emptyColor="gray.700"
       color="white"
-      size="xl"
+      size={size}
+      {...props}
     />
   );
 };

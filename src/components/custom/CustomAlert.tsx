@@ -8,7 +8,7 @@ interface CustomAlertProps {
 
 const CustomAlert: FC<CustomAlertProps> = ({ errorMsg, showPadding }) => {
   return (
-    <div className={`${showPadding && "px-5"} w-full`}>
+    <div className={`${showPadding && "px-5"} w-full my-2`}>
       <Alert status="error" rounded="xl">
         <AlertIcon />
         <span className="text-neutral-700">{errorMsg}</span>
