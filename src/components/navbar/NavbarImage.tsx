@@ -10,6 +10,11 @@ const NavbarImage = () => {
         alt=""
         className="navbar-image"
       />
+      <img
+        src={require("../../assets/img/mini_logo.png")}
+        alt=""
+        className="block md:hidden w-10"
+      />
     </Link>
   );
 };

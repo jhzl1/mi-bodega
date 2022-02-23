@@ -33,7 +33,7 @@ const CreateProductForm = () => {
         <Custom.Form>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full">
             <Custom.Input name="name" placeholder="Nombre" autoComplete="off" />
-            <Custom.Input name="price" placeholder="Precio" type="number" />
+            <Custom.Input name="price" placeholder="Precio" />
 
             <InputUploadImage setFieldValue={setFieldValue} />
             <Custom.Input

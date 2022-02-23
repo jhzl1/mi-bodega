@@ -61,8 +61,9 @@ const InputUploadImage: FC<InputUploadImageProps> = ({ setFieldValue }) => {
 
   if (imageWasUpload) {
     return (
-      <div className="flex items-end mb-2">
-        <Alert status="success" height="40px" textColor="gray.800" rounded="sm">
+      <div className="mt-2">
+        <FormLabel>Seleccione una imagen</FormLabel>
+        <Alert status="success" height="39px" textColor="gray.800" rounded="sm">
           <AlertIcon />
           Se ha subido la imagen
         </Alert>

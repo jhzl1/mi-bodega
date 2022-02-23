@@ -15,7 +15,7 @@
 }
 
 .navbar-image {
-  @apply w-40  md:w-52;
+  @apply w-40 hidden md:block md:w-52;
 }
 
 .navbar-username {
