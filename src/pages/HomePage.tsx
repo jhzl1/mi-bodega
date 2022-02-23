@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { startLoading, stopLoading } from "../actions/ui";
 import { Custom } from "../components/custom";
 import EmptyResult from "../components/EmptyResult";
 import GridLoading from "../components/GridLoading";
@@ -6,29 +8,34 @@ import { ProductCard } from "../components/product-card";
 import { fetchRemoteData } from "../helpers/fetchRemoteData";
 import { GetProductRes, Product } from "../interfaces/getProductsRes";
 import { routes } from "../routes/routes";
+import { RootState } from "../store/store";
 
 const HomePage = () => {
   const { detailProduct } = routes;
 
+  const dispatch = useDispatch();
+
+  const { isLoading } = useSelector((state: RootState) => state.ui);
+
   const [products, setProducts] = useState<Product[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getProducts = async () => {
+      dispatch(startLoading());
       try {
         const { data } = await fetchRemoteData<GetProductRes>({
           endpoint: "/products/get",
           method: "GET",
         });
         setProducts(data.products);
-        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }
+      dispatch(stopLoading());
     };
 
     getProducts();
-  }, []);
+  }, [dispatch]);
   return (
     <>
       <div className="mb-7">
@@ -39,12 +46,16 @@ const HomePage = () => {
       {isLoading && <GridLoading />}
 
       <div className="grid-home">
-        {products.map(({ name, quantity, urlImage, id }, i) => (
-          <ProductCard key={i} linkTo={detailProduct(id)}>
-            <ProductCard.Image url={urlImage} />
+        {products.map((product, i) => (
+          <ProductCard
+            key={i}
+            product={product}
+            linkTo={detailProduct(product.id)}
+          >
+            <ProductCard.Image url={product.urlImage} />
 
-            <ProductCard.Content quantity={quantity}>
-              <ProductCard.Title> {name} </ProductCard.Title>
+            <ProductCard.Content quantity={product.quantity}>
+              <ProductCard.Title> {product.name} </ProductCard.Title>
             </ProductCard.Content>
           </ProductCard>
         ))}

@@ -14,7 +14,7 @@ const CreateProductForm = () => {
   const fetch = useFetchRemoteData({
     endpoint: "/products/create",
     method: "POST",
-    toastTitle: "Se ha creado el producto",
+    toastTitle: "Producto creado exitosamente",
     toastDescription: "Ya puedes agregar otro!",
     navigate: home,
   });
@@ -29,7 +29,7 @@ const CreateProductForm = () => {
       onSubmit={handleSubmit}
       validationSchema={validationSchema}
     >
-      {({ isSubmitting, setFieldValue }) => (
+      {({ isSubmitting, setFieldValue, dirty }) => (
         <Custom.Form>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full">
             <Custom.Input name="name" placeholder="Nombre" autoComplete="off" />
@@ -39,10 +39,10 @@ const CreateProductForm = () => {
             <Custom.Input
               name="quantity"
               type="number"
-              placeholder="Cantidad"
+              placeholder="Cantidad en existencia"
             />
 
-            <div className="lg:col-span-2">
+            <div className="col-span-1 lg:col-span-2">
               <Custom.Input
                 name="description"
                 renderTextArea
@@ -61,12 +61,14 @@ const CreateProductForm = () => {
                 my={2}
                 colorScheme="purple"
                 type="reset"
+                disabled={!dirty}
               />
               <Custom.Button
                 title="Crear producto"
                 width="full"
                 my={2}
                 type="submit"
+                disabled={!dirty}
               />
             </div>
           )}

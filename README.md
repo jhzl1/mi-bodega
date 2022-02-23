@@ -8,6 +8,10 @@ React + Redux
 
 [MiBodegaApi](https://github.com/jhzl1/mi-bodega-api)
 
+## Url de producción
+
+[MiBodegaApp](https://mi-bodega-app.herokuapp.com/)
+
 ## Scripts disponibles
 
 ### `npm start`

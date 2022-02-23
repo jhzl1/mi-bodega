@@ -61,10 +61,10 @@ const InputUploadImage: FC<InputUploadImageProps> = ({ setFieldValue }) => {
 
   if (imageWasUpload) {
     return (
-      <div className="flex items-end">
-        <Alert status="success" textColor="gray.800" height="60px" rounded="md">
+      <div className="flex items-end mb-2">
+        <Alert status="success" height="40px" textColor="gray.800" rounded="sm">
           <AlertIcon />
-          Se ha subido la imagen {nameImage} exitosamente
+          Se ha subido la imagen
         </Alert>
       </div>
     );

@@ -1,9 +1,10 @@
-import { AddIcon, ArrowForwardIcon } from "@chakra-ui/icons";
+import AddIcon from "../AddIcon";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../../actions/auth";
 import { routes } from "../../routes/routes";
 import { RootState } from "../../store/store";
+import LogoutIcon from "../LogoutIcon";
 
 const NavbarButtons = () => {
   const { createProduct } = routes;
@@ -21,12 +22,16 @@ const NavbarButtons = () => {
       <span className="navbar-username">Hola, {username}</span>
 
       <Link to={createProduct} className="btn-navbar">
-        <AddIcon className="icon-navbar-button" />{" "}
+        <div className="icon-navbar-button">
+          <AddIcon />
+        </div>
         <span className="text-navbar-button">Agregar </span>
       </Link>
 
       <button className="btn-navbar" onClick={handleLogout}>
-        <ArrowForwardIcon className="icon-navbar-button" />{" "}
+        <div className="icon-navbar-button">
+          <LogoutIcon />
+        </div>
         <span className="text-navbar-button">Cerrar sesión</span>
       </button>
     </div>

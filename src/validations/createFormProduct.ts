@@ -24,6 +24,7 @@ export const validationSchema = Yup.object({
     .typeError("No es un número"),
   quantity: Yup.number()
     .required("La cantidad es requerida")
-    .moreThan(1, "La cantidad debe ser mayor a 0")
+    .moreThan(0, "La cantidad debe ser mayor a 0")
+    .lessThan(1000, "No puede agregar mas de 1000 unidades")
     .typeError("No es un número"),
 });

@@ -1,4 +1,6 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { removeError } from "../actions/ui";
 import { Custom } from "../components/custom";
 import LoginForm from "../components/forms/LoginForm";
 import { routes } from "../routes/routes";
@@ -9,6 +11,14 @@ const LoginPage = () => {
 
   const { errorMsg } = useSelector((state: RootState) => state.ui);
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (errorMsg) {
+      dispatch(removeError());
+    }
+    //eslint-disable-next-line
+  }, []);
   return (
     <Custom.UVContainer>
       <div className="unprotected-container">

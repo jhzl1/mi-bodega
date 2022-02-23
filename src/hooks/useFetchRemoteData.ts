@@ -51,9 +51,11 @@ const useFetchRemoteData = ({
           isClosable: true,
         });
       }
+
       if (navigate) {
         goTo(navigate);
       }
+      return resData;
     } catch (error: any) {
       const errorMsg = error.response.data.msg;
       dispatch(addError(errorMsg));
